@@ -1,9 +1,6 @@
 let rainbowMode = false;
 
-const onSiteLoad = () => {
-    createDivGrid(16);
-};
-
+// Event Handlers
 const handleAdjustGridButton = () => {
     clearDivGrid();
 
@@ -32,6 +29,13 @@ const handleColorModeButton = () => {
 const handleRandomizeColorButton = () => {
     randomizeEveryColor();
     console.log('did it');
+};
+// End of Event Handles
+
+// Methods
+
+const onSiteLoad = () => {
+    createDivGrid(16);
 };
 
 const createDivGrid = (grids) => {
@@ -112,9 +116,11 @@ const randomizeEveryColor = () => {
         element.style.backgroundColor = pickRandomColor() : null ;
     });
 };
+// End of Methods
 
 onSiteLoad();
 
+// Event Listener
 const button = document.querySelector('button');
 button.addEventListener('click', handleAdjustGridButton);
 
@@ -123,3 +129,5 @@ modeButton.addEventListener('click', handleColorModeButton);
 
 const randomizeColorButton = document.querySelector('.randomize-color');
 randomizeColorButton.addEventListener('click', handleRandomizeColorButton);
+randomizeColorButton.addEventListener('touchstart', handleRandomizeColorButton);
+// End of Event Listener
